@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <meta charset="utf-8" />
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    canvas {
+      display: block;
+    }
+    </style>
+    <title>Chicken Robot </title>
+  </head>
+  <body>
+  <script>
+  function setup() {
+  createCanvas(750,750);
+  angleMode(DEGREES);//per usare i gradi
+  textSize(20);//grandezza del testo
+}
+
+function draw() {
+  background(135,169,107);
+  fill(169,131,7);
+  //questi sono i cerchi dove andremo ad individuare gli angoli in senso orario
+  circle(50,50,75);
+  circle(150,50,75);
+  circle(250,50,75);
+  circle(350,50,75);
+  circle(450,50,75);
+  circle(550,50,75);
+  circle(650,50,75);
+
+  fill(0,128,128);
+  //angoli orari
+  arc(50,50,75,75,0,30);
+
+  arc(150,50,75,75,0,45);
+
+  arc(250,50,75,75,0,60);
+
+  arc(350,50,75,75,0,90);
+
+  arc(450,50,75,75,0,180);
+
+  arc(550,50,75,75,0,270);
+
+  arc(650,50,75,75,0,360);
+
+  fill(0,0,0);
+  //testo che indica la grandezza degli angoli orari
+    text('30gradi',25,110);
+
+  text('45gradi',125,110);
+
+  text('60gradi',225,110);
+
+  text('90gradi',325,110);
+
+  text('180gradi',425,110);
+
+  text('270gradi',525,110);
+
+  text('360gradi',625,110);
+
+
+   //questi sono i cerchi dove andremo ad individuare gli angoli in senso antiorario
+  fill(169,131,7);
+
+  circle(50,200,75);
+  circle(150,200,75);
+  circle(250,200,75);
+  circle(350,200,75);
+  circle(450,200,75);
+  circle(550,200,75);
+  circle(650,200,75);
+
+
+  fill(0,128,128);
+  //angoli antiorari
+  arc(50,200,75,75,330,360);
+
+  arc(150,200,75,75,315,360);
+
+  arc(250,200,75,75,300,360);
+
+  arc(350,200,75,75,270,360);
+
+  arc(450,200,75,75,180,360);
+
+  arc(550,200,75,75,90,360);
+
+  arc(650,200,75,75,0,360);
+
+  fill(0,0,0);
+
+  //testo che indica la grandezza degli angoli antiorari
+
+  text('30gradi',25,260);
+
+  text('45gradi',125,260);
+
+  text('60gradi',225,260);
+
+  text('90gradi',325,260);
+
+  text('180gradi',425,260);
+
+  text('270gradi',525,260);
+
+  text('360gradi',625,260);
+
+
+}
+</script>
+</body>
+</html>
