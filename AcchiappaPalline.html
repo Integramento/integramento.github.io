@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    canvas {
+      display: block;
+    }
+    </style>
+    <title>AcchiappaPalline</title>
+  </head>
+<body>
+<script>
+  let rectX=20
+let score=0;
+let rectY=0;
+let x=350;
+let y=200;
+let IncrementoX=5;
+let IncrementoY=5;
+
+
+//coordinata x di 20 palline
+let vX=[];
+
+//coordinata y di 20 palline
+let vY=[];
+
+//indice dell'array
+let i=0;
+
+
+function setup() {
+
+    //condizione iniziale i=0
+  //condizione finale i=19
+  //istruzione di incremento i=i+1
+  //istruzione generica arrayX[i]=0
+
+  for(i=0;i<20;i++){
+
+    vX[i]=random() *400;
+
+  }
+
+  for(i=0;i<20;i++){
+
+    vY[i]=random() *-400;
+
+  }
+
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(255,255,255);
+  fill("yellow")
+  rectX=mouseX-60;
+
+  //per disegnare le 20 palline
+  //condizione iniziale i=0
+  //condizione finale i=19
+  //condizione circle i<20
+  //istruzione di incremento i=i+1
+  //istruzione generica circle(arrayX[],arrayY[],50)
+
+  for(i=0;i<20;i++){
+
+    circle(vX[i],vY[i],50);
+  }
+  //creiamo un ciclo for per far cadere le palline
+  for(i=0;i<20;i++){
+    vY[i]=vY[i]+1;
+
+  }
+
+  //se le palline toccano la racchetta scompaiono
+  fill("purple")
+  for(i=0;i<20;i++){
+
+    if(vY[i]>=295 && vY[i]<=330  ){
+     if(vX[i]>=rectX-25 && vX[i]<=rectX+145){
+
+       vY[i]=-100;
+       score++;
+     }
+
+
+    }
+
+
+  }
+  text('Score:'+score,320,20);
+  //ciclo che per ogni pallina diminuisce lo score
+  for(i=0;i<20;i++){
+    if(vY[i]==400){
+
+      score--;
+    }
+  }
+
+  //se le palline andranno sotto il bordo si eliminano
+  for(i=0;i<20;i++){
+    if(vY[i]>=425){
+
+      vY[i]=440
+    }
+  }
+
+
+
+
+
+  //se la racchetta tocca il bordo si ferma,bordo a           destra)
+
+  if(rectX>=300){
+    rectX=300;
+  }
+
+
+    //se la racchetta tocca il bordo si ferma,bordo a           sinistra)
+
+  if(rectX<=0){
+    rectX=0;
+  }
+
+
+  //racchetta
+  fill("black")
+  rect(rectX,320,100,20);
+
+}
+
+
+</script>
+</body>
+</html>
